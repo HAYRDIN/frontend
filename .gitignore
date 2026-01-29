@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+backend/node_modules/
+
+# Database (will be regenerated)
+backend/database.sqlite
+
+# Logs
+*.log
+server.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test files (optional - remove if you want to keep them)
+backend/reproduce_issue.js
+backend/test_api.js
+backend/test_attendance.js
+backend/clear_db.js
+backend/remove_recent.js

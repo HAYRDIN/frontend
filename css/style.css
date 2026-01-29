@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+body { font-family: 'Inter', sans-serif; }
+
+@media print {
+    .print\:hidden { display: none !important; }
+    body { background: white !important; padding: 0 !important; }
+    .no-print { display: none !important; }
+    input, textarea { border: none !important; background: transparent !important; }
+    /* Force landscape for wide tables */
+    @page { size: landscape; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Utility for textarea auto-height */
+.auto-expand {
+    overflow-y: hidden;
+    resize: none; 
+    min-height: 1.5em;
+}

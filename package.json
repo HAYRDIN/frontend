@@ -1,0 +1,27 @@
+{
+    "name": "ecwc-rh-system",
+    "version": "1.0.0",
+    "description": "ECWC RH Industrial Project Management System",
+    "main": "backend/server.js",
+    "scripts": {
+        "start": "node backend/server.js",
+        "dev": "node backend/server.js"
+    },
+    "keywords": [
+        "hr",
+        "project-management",
+        "overtime",
+        "attendance"
+    ],
+    "author": "",
+    "license": "ISC",
+    "engines": {
+        "node": ">=18.x"
+    },
+    "dependencies": {
+        "body-parser": "^2.2.2",
+        "cors": "^2.8.5",
+        "express": "^5.2.1",
+        "sqlite3": "^5.1.7"
+    }
+}
