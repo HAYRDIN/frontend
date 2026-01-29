@@ -1,4 +1,8 @@
-const API_URL = 'http://localhost:3000/api';
+// Automatically use the correct API URL based on environment
+// In production (Render), use the same domain. In development, use localhost:3000
+const API_URL = window.location.hostname === 'localhost'
+    ? 'http://localhost:3000/api'
+    : `${window.location.origin}/api`;
 
 window.api = {
     async login(username, password) {
