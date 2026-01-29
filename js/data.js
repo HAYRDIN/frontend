@@ -59,23 +59,27 @@ window.EMPLOYEE_IDS = [
 window.FORMS = {
     DAILY_PR: {
         id: 'daily_pr',
-        title: 'Daily Plan & Report',
+        title: 'Daily Production Plan - Tire Recycling Plant',
         headerFields: [
             { label: 'Production Center', key: 'productionCenter' },
             { label: 'Activity Day', key: 'activityDay', type: 'date' },
-            { label: 'Activity Output', key: 'activityOutput' },
-            { label: 'Shift', key: 'shift' }
+            { label: 'Activity Output', key: 'activityOutput' }
         ],
         columns: [
-            { key: 'activity', label: 'Activity', width: 'min-w-[150px]' },
-            { key: 'shiftTime', label: 'Shift/Time', width: 'w-28' },
-            { key: 'hourlyTarget', label: 'Hourly Target', width: 'w-24' },
+            { key: 'activity', label: 'Activity', width: 'min-w-[120px]' },
+            { key: 'shiftTime', label: 'Shift/Time Interval', width: 'w-32' },
+            { key: 'hourlyGoal', label: 'Hourly Goal', width: 'w-24' },
+            { key: 'unit', label: 'Unit', width: 'w-20' },
+            { key: 'inputMaterial', label: 'Input Material Description', width: 'min-w-[100px]' },
+            { key: 'productionPlanQty', label: 'Production Plan Qty', width: 'w-28' },
+            { key: 'materialUnit', label: 'Material Measuring Unit', width: 'w-24' },
+            { key: 'actual', label: 'Actual', width: 'w-24' },
             { key: 'teamMembers', label: 'Team Members', width: 'min-w-[150px]' },
-            { key: 'achieved', label: 'Achieved', width: 'w-24' },
-            { key: 'issues', label: 'Issues', width: 'min-w-[150px]' },
-            { key: 'materialUsed', label: 'Material Used', width: 'min-w-[120px]' },
+            { key: 'equipmentStatus', label: 'Equipment Checks/Status', width: 'w-28' },
+            { key: 'issues', label: 'Issues', width: 'w-24' },
+            { key: 'notes', label: 'Notes', width: 'min-w-[150px]' }
         ],
-        defaultRows: 5,
+        defaultRows: 20,
         footerSignatures: ['Prepared by', 'Checked by', 'Approved by (PM)', 'Approved by (QC)']
     },
     WEEKLY_PLAN: {
