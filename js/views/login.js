@@ -2,10 +2,9 @@ window.getLoginHTML = function () {
     return `
     <div class="min-h-screen flex items-center justify-center p-4 bg-slate-900 font-sans">
         <div class="max-w-md w-full bg-white rounded-3xl shadow-2xl overflow-hidden">
-            <div class="bg-blue-600 p-8 text-center text-white">
-                <div class="inline-block p-3 bg-white/20 rounded-2xl mb-4 text-white">${window.getIcon('HardHat', 40)}</div>
-                <h1 class="text-2xl font-black">ECWC RISING HONGFA</h1>
-                <p class="text-blue-100 text-sm opacity-80 uppercase tracking-widest font-bold">Portal Access</p>
+            <div class="bg-white p-8 text-center">
+                <img src="css/logo.jpg" alt="ECWC Rising Hongfa Logo" class="w-full max-w-sm mx-auto mb-4">
+                <p class="text-slate-600 text-sm opacity-80 uppercase tracking-widest font-bold">Portal Access</p>
             </div>
             <div class="p-8 space-y-5">
                 <form id="login-form">
@@ -93,11 +92,6 @@ window.bindLoginEvents = function (appState, render) {
                     // Update App State
                     window.appState.user = response.user;
                     window.appState.view = 'DASHBOARD';
-                    // Trigger global render if available, or just rely on app.js event loop if it had one.
-                    // Assuming app.js calls render based on state change if we notify it.
-                    // Since we can't easily notify app.js unless we dispatch event or call a global method.
-                    // We will assume app.js exposes `renderApp` or similar if I chcek app.js?
-                    // I'll assume passing `render` function to `bindLoginEvents` works as it was in signature.
                     if (render) render();
                 } else {
                     errorDiv.textContent = response.message || 'Invalid credentials';
