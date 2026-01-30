@@ -30,37 +30,11 @@ window.getLoginHTML = function () {
                 </form>
             </div>
 
-            <div class="p-8 pt-0 border-t border-slate-100 mt-0">
-                <p class="text-[10px] font-black text-slate-300 uppercase mb-4 tracking-tighter">Authorized Profiles</p>
-                <div class="grid grid-cols-1 gap-2">
-                    <!-- We can create users via API, listing them here statically might be misleading if they don't exist in DB yet, but we seeded them. -->
-                     <div class="user-card flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100 hover:border-blue-200 cursor-pointer transition-colors" data-username="presenter1">
-                        <div><div class="text-[11px] font-black text-slate-700">Presenter One</div><div class="text-[9px] text-slate-400 font-medium">presenter1</div></div><span class="text-[8px] font-black bg-white px-2 py-1 rounded border border-slate-200 uppercase">PRESENTER</span>
-                    </div>
-                    <div class="user-card flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100 hover:border-blue-200 cursor-pointer transition-colors" data-username="reviewer">
-                        <div><div class="text-[11px] font-black text-slate-700">Senior Reviewer</div><div class="text-[9px] text-slate-400 font-medium">reviewer</div></div><span class="text-[8px] font-black bg-white px-2 py-1 rounded border border-slate-200 uppercase">REVIEWER</span>
-                    </div>
-                    <div class="user-card flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100 hover:border-blue-200 cursor-pointer transition-colors" data-username="finance">
-                        <div><div class="text-[11px] font-black text-slate-700">Finance Officer</div><div class="text-[9px] text-slate-400 font-medium">finance</div></div><span class="text-[8px] font-black bg-white px-2 py-1 rounded border border-slate-200 uppercase">FINANCE</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>`;
 }
 
 window.bindLoginEvents = function (appState, render) {
-    // Quick fill helper
-    document.querySelectorAll('.user-card').forEach(el => {
-        el.addEventListener('click', () => {
-            document.getElementById('login-username').value = el.dataset.username;
-            document.getElementById('login-password').value = 'presenter123'; // Default password for ease
-            if (el.dataset.username === 'reviewer') document.getElementById('login-password').value = 'reviewer123';
-            if (el.dataset.username === 'finance') document.getElementById('login-password').value = 'finance123';
-            document.getElementById('login-password').focus();
-        });
-    });
-
     const form = document.getElementById('login-form');
     if (form) {
         form.addEventListener('submit', async (e) => {
