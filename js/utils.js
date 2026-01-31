@@ -32,8 +32,8 @@ window.calculateOvertime = function (row, role, rowIndex = 0) {
         });
     });
 
-    // FINANCE STRUCTURE
-    if (role === 'FINANCE') {
+    // FINANCE, HR, and REVIEWER see grand totals
+    if (role === 'FINANCE' || role === 'HR' || role === 'REVIEWER') {
         const grandOtHours =
             (base.regularHours * rates.R) +
             (base.holidayHours * rates.H) +

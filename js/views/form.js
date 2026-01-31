@@ -9,10 +9,9 @@ window.getFormHTML = function (appState) {
     const data = appState.formData;
     const user = appState.user;
     const isFinance = user.role === 'FINANCE';
-    const financeAutoFields = ['grandOtHours', 'totalEtb'];
-
-    const isStoreMan = user.role === 'STORE_MAN';
+    const isHR = user.role === 'HR';
     const isReviewer = user.role === 'REVIEWER';
+    const isStoreMan = user.role === 'STORE_MAN';
     const isViewer = user.role === 'VIEWER';
     const canEditComments = isReviewer && data.approvalStatus === 'PENDING';
 
@@ -151,7 +150,7 @@ window.getFormHTML = function (appState) {
                                                         data-action="row-input"
                                                         data-index="${idx}"
                                                         data-key="${sub.key}"
-                                                        ${(isDataLocked || (isFinance && financeAutoFields.includes(sub.key))) ? 'readonly' : ''}
+                                                        ${(isDataLocked || ((isFinance || isHR || isReviewer) && ['grandOtHours', 'totalEtb'].includes(sub.key))) ? 'readonly' : ''}
                                                         class="w-full h-full p-2 bg-transparent outline-none text-xs resize-none min-h-[40px]"
                                                     >${r[sub.key] || ''}</textarea>
                                                 </td>
@@ -182,7 +181,7 @@ window.getFormHTML = function (appState) {
                                                     data-action="row-input"
                                                     data-index="${idx}"
                                                     data-key="${c.key}"
-                                                    ${(isDataLocked || (isFinance && financeAutoFields.includes(c.key))) ? 'readonly' : ''}
+                                                    ${(isDataLocked || ((isFinance || isHR || isReviewer) && ['grandOtHours', 'totalEtb'].includes(c.key))) ? 'readonly' : ''}
                                                     class="w-full h-full p-2 bg-transparent outline-none text-xs resize-none min-h-[40px]"
                                                 >${r[c.key] || ''}</textarea>
                                             </td>`;
