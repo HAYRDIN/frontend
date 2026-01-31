@@ -65,3 +65,20 @@ window.getHourlyRateByIndex = function (index) {
     if (index >= 10 && index <= 18) return 62.5; // No 11–19
     return 0;
 }
+
+window.calculateAttendance = function (row) {
+    let tpd = 0; // Total Present Days
+    let tad = 0; // Total Absent Days
+    let thl = 0; // Total Holiday/Leave
+
+    Object.keys(row).forEach(key => {
+        if (!key.startsWith('d')) return;
+
+        const val = (row[key] || '').toUpperCase();
+        if (val === 'P') tpd++;
+        else if (val === 'A') tad++;
+        else if (val === 'H' || val === 'L') thl++;
+    });
+
+    return { tpd, tad, thl };
+}

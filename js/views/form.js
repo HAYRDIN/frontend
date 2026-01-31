@@ -339,6 +339,17 @@ window.bindFormEvents = function (appState, render) {
                         textarea[data-index="${idx}"][data-key="totalEtb"]`
                     ).forEach(t => t.value = appState.formData.rows[idx][t.dataset.key]);
                 }
+
+                if (appState.activeFormType === 'MONTHLY_ATTENDANCE') {
+                    const totals = window.calculateAttendance(appState.formData.rows[idx]);
+                    Object.assign(appState.formData.rows[idx], totals);
+
+                    document.querySelectorAll(
+                        `textarea[data-index="${idx}"][data-key="tpd"],
+                        textarea[data-index="${idx}"][data-key="tad"],
+                        textarea[data-index="${idx}"][data-key="thl"]`
+                    ).forEach(t => t.value = appState.formData.rows[idx][t.dataset.key]);
+                }
             });
         });
 
