@@ -32,31 +32,22 @@ window.calculateOvertime = function (row, role, rowIndex = 0) {
         });
     });
 
-    // FINANCE, HR, and REVIEWER see grand totals
-    if (role === 'FINANCE' || role === 'HR' || role === 'REVIEWER') {
-        const grandOtHours =
-            (base.regularHours * rates.R) +
-            (base.holidayHours * rates.H) +
-            (base.nightHours * rates.N) +
-            (base.weekendHours * rates.W);
+    // Weighted sum of OT hours based on rates
+    const grandOtHours =
+        (base.regularHours * rates.R) +
+        (base.holidayHours * rates.H) +
+        (base.nightHours * rates.N) +
+        (base.weekendHours * rates.W);
 
-        // Use the row index to determine hourly rate
-        const hourlyRate = window.getHourlyRateByIndex(rowIndex);
-        const totalEtb = grandOtHours * hourlyRate;
+    // Use the row index to determine hourly rate
+    const hourlyRate = window.getHourlyRateByIndex(rowIndex);
+    const totalEtb = grandOtHours * hourlyRate;
 
-        return {
-            ...base,
-            grandOtHours: grandOtHours.toFixed(2),
-            totalEtb: totalEtb.toFixed(2)
-        };
-    }
-
-    // DEFAULT (OTHER ROLES)
+    // Return object with raw hours for individual columns and calculated totals
     return {
-        regularHours: base.regularHours * rates.R,
-        holidayHours: base.holidayHours * rates.H,
-        nightHours: base.nightHours * rates.N,
-        weekendHours: base.weekendHours * rates.W
+        ...base,
+        grandOtHours: grandOtHours.toFixed(2),
+        totalEtb: totalEtb.toFixed(2)
     };
 }
 
