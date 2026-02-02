@@ -61,7 +61,7 @@ window.calculateOvertime = function (row, role, rowIndex = 0) {
 }
 
 window.getHourlyRateByIndex = function (index) {
-    if (index >= 0 && index <= 9) return 78.5;   // No 1–10
+    if (index >= 0 && index <= 9) return 78.13;   // No 1–10
     if (index >= 10 && index <= 18) return 62.5; // No 11–19
     return 0;
 }
