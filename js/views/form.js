@@ -51,12 +51,17 @@ window.getFormHTML = function (appState) {
                 ` : ''}
 
                 <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b-4 border-slate-900 pb-8 gap-6">
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="bg-slate-900 p-2 rounded-lg text-white">${window.getIcon('HardHat', 24)}</div>
-                            <span class="text-[11px] font-black uppercase tracking-[0.3em] text-slate-400">Construction Management</span>
+                        <div class="flex items-center gap-4">
+                            ${(appState.activeFormType === 'MONTHLY_ATTENDANCE' || appState.activeFormType === 'OVERTIME_CONTROL') ? `
+                                <img src="css/logo.jpg" alt="Logo" class="h-16 w-auto object-contain">
+                            ` : `
+                                <div class="bg-slate-900 p-2 rounded-lg text-white">${window.getIcon('HardHat', 24)}</div>
+                            `}
+                            <div class="space-y-1">
+                                <span class="text-[11px] font-black uppercase tracking-[0.3em] text-slate-400">Construction Management</span>
+                                <h1 class="text-4xl font-black uppercase tracking-tighter text-slate-900 leading-none">${config.title}</h1>
+                            </div>
                         </div>
-                        <h1 class="text-4xl font-black uppercase tracking-tighter text-slate-900 leading-none">${config.title}</h1>
                     </div>
                     <div class="text-left md:text-right border-l-4 md:border-l-0 md:border-r-4 border-blue-600 pl-4 md:pl-0 md:pr-4 py-1">
                         <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Master Document Record</p>
