@@ -61,8 +61,12 @@ window.calculateOvertime = function (row, role, rowIndex = 0) {
 }
 
 window.getHourlyRateByIndex = function (index) {
-    if (index >= 0 && index <= 9) return 78.13;   // No 1–10
-    if (index >= 10 && index <= 18) return 62.5; // No 11–19
+    if (index >= 0 && index <= 9) return 78.13;    // Group 1
+    if (index >= 10 && index <= 18) return 62.5;   // Group 2
+    if (index >= 19 && index <= 20) return 140.63; // Group 3 (Bereket, Gadisa)
+    if (index === 21) return 114.58;               // Group 4 (Abraham)
+    if (index === 22) return 93.78;                // Group 5 (Goytom)
+    if (index >= 23 && index <= 24) return 46.88;  // Group 6 (Weyneshet, Fasika)
     return 0;
 }
 
