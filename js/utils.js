@@ -25,7 +25,7 @@ window.calculateOvertime = function (row, role, rowIndex = 0) {
             const type = match[1];
             const hours = parseFloat(match[2]);
 
-            if (type === 'R') base.regularHours += ;
+            if (type === 'R') base.regularHours += hours;
             if (type === 'H') base.holidayHours += hours;
             if (type === 'N') base.nightHours += hours;
             if (type === 'W') base.weekendHours += hours;
