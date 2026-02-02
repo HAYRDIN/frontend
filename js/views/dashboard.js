@@ -77,9 +77,14 @@ window.bindDashboardEvents = function (appState, render) {
 
             // New Form Initialization
             const config = window.FORMS[id];
+            const ethDate = window.getEthiopianDate ? window.getEthiopianDate() : { monthName: '', year: '' };
+
             appState.formData = {
                 id: Date.now().toString(), // Helper ID for now
-                header: {},
+                header: {
+                    month: (id === 'MONTHLY_ATTENDANCE' || id === 'OVERTIME_CONTROL') ? ethDate.monthName : '',
+                    year: (id === 'MONTHLY_ATTENDANCE' || id === 'OVERTIME_CONTROL') ? ethDate.year : ''
+                },
                 rows: Array(config.defaultRows).fill(null).map((_, i) => ({
                     eId: (id === 'MONTHLY_ATTENDANCE' || id === 'WEEKLY_ATTENDANCE' || id === 'OVERTIME_CONTROL')
                         ? (window.EMPLOYEE_IDS[i] || '')

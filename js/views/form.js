@@ -70,15 +70,27 @@ window.getFormHTML = function (appState) {
                             <label class="text-[10px] font-black text-slate-400 uppercase tracking-tighter mb-1.5 flex items-center gap-1.5">
                                 <span class="text-blue-500">${window.getIcon('Calendar', 12)}</span>${f.label}
                             </label>
-                            <input 
-                                type="${f.type || "text"}" 
-                                data-action="header-input"
-                                data-key="${f.key}"
-                                ${isDataLocked ? 'readonly' : ''}
-                                placeholder="..."
-                                class="w-full bg-transparent outline-none font-bold text-slate-800 border-b-2 border-slate-200 focus:border-blue-600 transition-colors py-1 ${isDataLocked ? 'cursor-default' : 'cursor-text'}" 
-                                value="${data.header[f.key] || ''}"
-                            />
+                            ${f.type === 'select' ? `
+                                <select 
+                                    data-action="header-input"
+                                    data-key="${f.key}"
+                                    ${isDataLocked ? 'disabled' : ''}
+                                    class="w-full bg-transparent outline-none font-bold text-slate-800 border-b-2 border-slate-200 focus:border-blue-600 transition-colors py-1 ${isDataLocked ? 'cursor-default' : 'cursor-pointer'}"
+                                >
+                                    <option value="">Select ${f.label}...</option>
+                                    ${f.options.map(opt => `<option value="${opt}" ${data.header[f.key] === opt ? 'selected' : ''}>${opt}</option>`).join('')}
+                                </select>
+                            ` : `
+                                <input 
+                                    type="${f.type || "text"}" 
+                                    data-action="header-input"
+                                    data-key="${f.key}"
+                                    ${isDataLocked ? 'readonly' : ''}
+                                    placeholder="..."
+                                    class="w-full bg-transparent outline-none font-bold text-slate-800 border-b-2 border-slate-200 focus:border-blue-600 transition-colors py-1 ${isDataLocked ? 'cursor-default' : 'cursor-text'}" 
+                                    value="${data.header[f.key] || ''}"
+                                />
+                            `}
                         </div>
                     `).join('')}
                 </div>

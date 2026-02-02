@@ -205,8 +205,8 @@ window.FORMS = {
         title: 'Monthly Employee Attendance Tracker',
         allowedRoles: ['REVIEWER', 'STORE_MAN', 'VIEWER', 'FINANCE', 'HR', 'PRESENTER'], // Visible to Reviewers and Presenters
         headerFields: [
-            { label: 'Month', key: 'month' },
-            { label: 'Year', key: 'year' },
+            { label: 'Month', key: 'month', type: 'select', options: window.ETHIOPIAN_MONTHS },
+            { label: 'Year', key: 'year', type: 'number' },
             { label: 'Department', key: 'department' }
         ],
         columns: [
@@ -243,8 +243,8 @@ window.FORMS = {
         headerFields: [
             { label: 'Company Name', key: 'companyName' },
             { label: 'Project', key: 'project' },
-            { label: 'Month', key: 'month' },
-            { label: 'Year', key: 'year' }
+            { label: 'Month', key: 'month', type: 'select', options: window.ETHIOPIAN_MONTHS },
+            { label: 'Year', key: 'year', type: 'number' }
         ],
         columns: [
             { key: 'eId', label: 'Emp ID', width: 'w-20' },
