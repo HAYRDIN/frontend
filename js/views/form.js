@@ -168,7 +168,7 @@ window.getFormHTML = function (appState) {
                                                         data-index="${idx}"
                                                         data-key="${sub.key}"
                                                         ${(isDataLocked || ((isFinance || isHR || isReviewer) && ['grandOtHours', 'totalEtb'].includes(sub.key))) ? 'readonly' : ''}
-                                                        class="w-full h-full p-2 bg-transparent outline-none text-xs resize-none min-h-[40px]"
+                                                        class="w-full h-full p-2 bg-transparent outline-none text-xs resize-none min-h-[40px] font-bold"
                                                     >${r[sub.key] || ''}</textarea>
                                                 </td>
                                             `;
@@ -199,7 +199,7 @@ window.getFormHTML = function (appState) {
                                                     data-index="${idx}"
                                                     data-key="${c.key}"
                                                     ${(isDataLocked || ((isFinance || isHR || isReviewer) && ['grandOtHours', 'totalEtb'].includes(c.key))) ? 'readonly' : ''}
-                                                    class="w-full h-full p-2 bg-transparent outline-none text-xs resize-none min-h-[40px]"
+                                                    class="w-full h-full p-2 bg-transparent outline-none text-xs resize-none min-h-[40px] font-bold"
                                                 >${r[c.key] || ''}</textarea>
                                             </td>`;
     }).join('')}
@@ -230,7 +230,7 @@ window.getFormHTML = function (appState) {
                         <textarea 
                             id="comments-input"
                             ${canEditComments ? '' : 'readonly'}
-                            class="w-full border-2 border-slate-200 rounded-xl p-4 text-sm font-medium outline-none focus:border-blue-500 transition-all min-h-[120px] bg-slate-50"
+                            class="w-full border-2 border-slate-200 rounded-xl p-4 text-sm font-bold outline-none focus:border-blue-500 transition-all min-h-[120px] bg-slate-50"
                             placeholder="${canEditComments ? 'Reviewer remarks only...' : 'Read-only (Reviewer only)'}"
                         >${data.comments || ''}</textarea>
                     </div>
