@@ -288,5 +288,35 @@ window.FORMS = {
         ],
         defaultRows: OVERTIME_EMPLOYEES.length,
         footerSignatures: ['Prepared By', 'Approved By', 'Authorized By']
+    },
+    STOCK_DATA_MANAGEMENT: {
+        id: 'stock_data_management',
+        title: 'Stock Data Management',
+        allowedRoles: ['PRESENTER', 'STORE_MAN', 'REVIEWER', 'FINANCE', 'HR'],
+        headerFields: [
+            { label: 'Company Name', key: 'companyName' },
+            { label: 'Department', key: 'department' },
+            { label: 'Fiscal Year', key: 'fiscalYear' }
+        ],
+        columns: [
+            { key: 'sn', label: 'S/N', width: 'w-12' },
+            { key: 'description', label: 'Description', width: 'min-w-[200px]' },
+            { key: 'qty', label: 'Quantity', width: 'w-20' },
+            { key: 'uom', label: 'Unit of Measure', width: 'w-24' },
+            { key: 'unitPrice', label: 'Unit Price', width: 'w-24' },
+            { key: 'vat', label: 'V.A.T.', width: 'w-20' },
+            { key: 'totalPrice', label: 'Total Price', width: 'w-28' },
+            { key: 'prNo', label: 'PR No.', width: 'w-24' },
+            { key: 'minuteDate', label: 'Minute Date', width: 'w-28', type: 'date' },
+            { key: 'poNo', label: 'PO No.', width: 'w-24' },
+            { key: 'grnNo', label: 'GRN No.', width: 'w-24' },
+            { key: 'sivNo', label: 'SIV No.', width: 'w-24' },
+            { key: 'supplier', label: 'Supplier', width: 'min-w-[150px]' },
+            { key: 'userDept', label: 'User Department', width: 'min-w-[150px]' },
+            { key: 'purpose', label: 'Purpose', width: 'min-w-[150px]' },
+            { key: 'remark', label: 'Remark', width: 'min-w-[150px]' }
+        ],
+        defaultRows: 15,
+        footerSignatures: ['Prepared by', 'Checked by', 'Approved by']
     }
 }

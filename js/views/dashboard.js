@@ -27,7 +27,7 @@ window.getDashboardHTML = function (appState) {
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
                 ${availableForms.map(form => `
-                    <button class="form-select-btn group text-left bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 hover:border-blue-500 transition-all w-full" data-id="${form.id}">
+                    <button class="form-select-btn group text-left bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 hover:border-blue-500 transition-all w-full max-w-lg mx-auto" data-id="${form.id}">
                         <div class="bg-blue-50 w-12 h-12 rounded-xl flex items-center justify-center text-blue-600 mb-4 group-hover:scale-110 transition-transform">
                             ${window.getIcon('Box', 24)}
                         </div>
